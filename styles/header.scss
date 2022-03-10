@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  padding: 5px 50px;
+  border-bottom: 1px solid lightgray;
+}
+.create-event-btn {
+  background-color: white;
+  border-radius: 20px;
+  margin: auto 10px;
+  width: 100px;
+  &:focus,
+  &:hover {
+    background-color: #2196f3;
+    color: white;
+  }
+
+  &__icon {
+    margin-right: 6px;
+  }
+}
+.navigation__today-btn {
+  background-color: white;
+  border-radius: 5px;
+  margin: auto 10px;
+  width: 80px;
+}
