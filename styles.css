@@ -60,7 +60,7 @@
 
 .header {
   display: flex;
-  padding: 5px 50px;
+  padding: 15px 6.25%;
   border-bottom: 1px solid lightgray;
 }
 
@@ -84,29 +84,45 @@
   margin: auto 10px;
   width: 80px;
 }
+.navigation__today-btn:hover {
+  background-color: #2196f3;
+  color: white;
+}
 
 .calendar__header {
   display: flex;
-  margin-left: 50px;
-  margin-bottom: 0;
-  padding: 0;
+  margin-left: 6.25%;
+  margin-right: 25px;
+}
+.calendar__body {
+  overflow-y: scroll;
+  height: 70vh;
 }
 .calendar__day-label {
   display: flex;
   flex-direction: column;
   align-items: center;
   flex-grow: 1;
-  margin: 20px;
-  padding: 10px;
+  margin: 10px;
+  padding: 5px;
+}
+.calendar__time-slot {
+  border: 1px solid lightgray;
+  height: 60px;
 }
 .calendar__week-container {
   display: flex;
 }
-.calendar__time-scale {
-  width: 50px;
-  height: 100%;
-  border: 1px solid lightgray;
+.calendar__week {
+  flex: 15;
+  display: flex;
 }
+.calendar__day {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .day-label:hover {
   cursor: pointer;
   background-color: #2196f3;
@@ -116,10 +132,86 @@
 .day-label__day-name {
   text-transform: uppercase;
   margin-bottom: 20px;
+  font-size: 25px;
 }
+.day-label__day-number {
+  font-size: 25px;
+}
+
+.calendar__time-scale {
+  flex: 1;
+  border: 1px solid lightgray;
+}
+
 .time-slot {
   height: 60px;
   border-bottom: 1px solid lightgrey;
+  position: relative;
+}
+.time-slot__time {
+  position: relative;
+  bottom: -75%;
+  left: 20%;
+  background-color: white;
+  font-size: 75%;
+}
+
+.create-event {
+  position: relative;
+}
+.create-event__close-btn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  cursor: pointer;
+  background-color: white;
+  border: none;
+}
+.create-event__close-btn:hover {
+  font-size: 20px;
+  color: #2196f3;
+}
+
+.event-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  color: lightgrey;
+}
+
+.event-form__field {
+  border: none;
+  border-bottom: 1px solid #2196f3;
+  width: 100%;
+  margin-top: 20px;
+  text-align: right;
+}
+.event-form__field:focus {
+  border: none;
+}
+
+.event-form__time {
+  display: flex;
+}
+
+.event-form__submit-btn,
+.delete-event-btn {
+  margin-top: 10px;
+  background-color: #2196f3;
+  padding: 8px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 80px;
+}
+
+.event {
+  position: absolute;
+  background-color: #2196f3;
+  color: white;
+  height: 200px;
+  position: absolute;
+  width: 60px;
 }
 
 * {

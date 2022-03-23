@@ -20,10 +20,6 @@
       integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc="
       crossorigin="anonymous"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
     <link rel="stylesheet" href="styles.css" />
   </head>
 
@@ -46,7 +42,7 @@
       </div>
     </header>
     <section class="calendar">
-      <header class="calendar__header card-panel"></header>
+      <header class="calendar__header"></header>
       <div class="calendar__body">
         <div class="calendar__week-container">
           <div class="calendar__time-scale"></div>
@@ -57,7 +53,7 @@
     <div class="modal hidden overlay">
       <div class="modal__content">
         <div class="create-event">
-          <button class="create-event__close-btn">+</button>
+          <button class="create-event__close-btn">x</button>
           <form class="event-form">
             <input
               type="text"

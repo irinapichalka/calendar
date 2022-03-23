@@ -1,17 +1,20 @@
 import { getItem, setItem } from "../common/storage.js";
 import { renderEvents } from "./events.js";
 import { getDateTime } from "../common/time.utils.js";
-//import { closeModal } from '../common/modal.js';
+import { closeModal } from "../common/modal.js";
 
 const eventFormElem = document.querySelector(".event-form");
 const closeEventFormBtn = document.querySelector(".create-event__close-btn");
 
 function clearEventForm() {
   // ф-ция должна очистить поля формы от значений
+  eventFormElem.reset();
 }
 
 function onCloseEventForm() {
   // здесь нужно закрыть модальное окно и очистить форму
+  closeModal();
+  clearEventForm();
 }
 
 function onCreateEvent(event) {
@@ -24,8 +27,40 @@ function onCreateEvent(event) {
   // полученное событие добавляем в массив событий, что хранится в storage
   // закрываем форму
   // и запускаем перерисовку событий с помощью renderEvents
+  event.preventDefault();
+  console.log(...new FormData(eventFormElem));
+  const formData = [...new FormData(eventFormElem)].reduce(
+    (acc, [field, value]) => {
+      return { ...acc, [field]: value };
+    },
+    {}
+  );
+  const eventObj = {};
+  eventObj.id = Math.random().toString(36).substr(2, 9);
+  eventObj.title = formData.title;
+  eventObj.description = formData.description;
+  eventObj.start = getDateTime(formData.date, formData.startTime);
+  eventObj.end = getDateTime(formData.date, formData.endTime);
+
+  const arrayOfEvents = getItem("events");
+  arrayOfEvents.push(eventObj);
+  setItem("events", arrayOfEvents);
+  console.log(getItem("events"));
+
+  onCloseEventForm();
+  renderEvents();
 }
 
 export function initEventForm() {
   // подпишитесь на сабмит формы и на закрытие формы
+  eventFormElem.addEventListener("submit", onCreateEvent);
+  closeEventFormBtn.addEventListener("click", onCloseEventForm);
 }
+/*const submitElem = document.querySelector(".event-form__submit-btn");
+submitElem.addEventListener("click", onCloseEventForm);
+closeEventFormBtn.addEventListener("click", onCreateEvent);*/
+
+/*const inputElem = document.querySelector('input[name="title"');
+inputElem.addEventListener("input", (event) => {
+  console.log(event.target.value);
+});*/
