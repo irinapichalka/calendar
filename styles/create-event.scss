@@ -6,11 +6,11 @@
     top: -10px;
     right: -10px;
     cursor: pointer;
-    background-color: white;
+    background-color: $color-white;
     border: none;
     &:hover {
       font-size: 20px;
-      color: #2196f3;
+      color: $color-blue;
     }
   }
 }
@@ -22,7 +22,7 @@
 }
 .event-form__field {
   border: none;
-  border-bottom: 1px solid #2196f3;
+  border-bottom: 1px solid $color-blue;
   width: 100%;
   margin-top: 20px;
   text-align: right;
@@ -36,9 +36,9 @@
 .event-form__submit-btn,
 .delete-event-btn {
   margin-top: 10px;
-  background-color: #2196f3;
+  background-color: $color-blue;
   padding: 8px;
-  color: white;
+  color: $color-white;
   border: none;
   cursor: pointer;
   width: 80px;

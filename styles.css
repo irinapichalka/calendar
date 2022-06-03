@@ -9,7 +9,7 @@
 .button {
   height: 40px;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid lightgray;
   outline: none;
   cursor: pointer;
   font-size: 16px;
@@ -30,9 +30,9 @@
   align-items: center;
 }
 .modal__content {
-  background: #fff;
+  background: white;
   padding: 16px;
-  border: 1px solid #ccc;
+  border: 1px solid lightgray;
   border-radius: 8px;
 }
 
@@ -48,9 +48,9 @@
 
 .popup__content {
   position: absolute;
-  background: #fff;
+  background: white;
   padding: 16px;
-  border: 1px solid #ccc;
+  border: 1px solid lightgray;
   border-radius: 8px;
 }
 
@@ -145,7 +145,7 @@
 
 .time-slot {
   height: 60px;
-  border-bottom: 1px solid lightgrey;
+  border-bottom: 1px solid lightgray;
   position: relative;
 }
 .time-slot__time {

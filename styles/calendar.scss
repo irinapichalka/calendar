@@ -19,7 +19,7 @@
     padding: 5px;
   }
   &__time-slot {
-    border: 1px solid lightgray;
+    border: 1px solid $border-gray;
     height: 60px;
   }
   &__body {
@@ -40,9 +40,9 @@
 .day-label {
   &:hover {
     cursor: pointer;
-    background-color: #2196f3;
+    background-color: $color-blue;
     border-radius: 50%;
-    color: white;
+    color: $color-white;
   }
   &__day-name {
     text-transform: uppercase;

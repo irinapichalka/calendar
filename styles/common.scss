@@ -1,7 +1,7 @@
 .button {
   height: 40px;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid $border-gray;
   outline: none;
   cursor: pointer;
   font-size: 16px;
@@ -22,9 +22,9 @@
   align-items: center;
 
   &__content {
-    background: #fff;
+    background: $color-white;
     padding: 16px;
-    border: 1px solid #ccc;
+    border: 1px solid $border-gray;
     border-radius: 8px;
   }
 }
@@ -42,9 +42,9 @@
 .popup {
   &__content {
     position: absolute;
-    background: #fff;
+    background: $color-white;
     padding: 16px;
-    border: 1px solid #ccc;
+    border: 1px solid $border-gray;
     border-radius: 8px;
   }
 }
