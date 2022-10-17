@@ -29,7 +29,6 @@ const createEventElement = (event) => {
   eventElem.append(eventTime);
   return eventElem;
 };
-
 export const renderEvents = () => {
   const eventsArray = getItem("events");
   const monday = getItem("displayedWeekStart");
