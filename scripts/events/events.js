@@ -32,19 +32,24 @@ const createEventElement = (event) => {
 export const renderEvents = () => {
   const eventsArray = getItem("events");
   const monday = getItem("displayedWeekStart");
-  const sunday = monday.getDate() + 7;
-  const eventsOfCurrentWeek = eventsArray.filter(
-    (obj) => obj.start > monday && obj.end < sunday
+  const sunday = new Date(
+    monday.getFullYear(),
+    monday.getMonth(),
+    monday.getDate() + 7 /////////////////////!!!!!!!!!!!!
   );
+  console.log(eventsArray);
+  const eventsOfCurrentWeek = eventsArray.filter((obj) => obj.start > monday);
+
+  console.log(monday);
+  console.log(sunday);
+  console.log(eventsOfCurrentWeek);
   eventsOfCurrentWeek.forEach((obj) => {
-    console.log(obj);
     const calendarDaySlotElem = document.querySelector(
       `div[data-day="${obj.start.getDate()}"]`
     );
     const calendarTimeSlotElem = calendarDaySlotElem.querySelector(
       `div[data-time="${obj.start.getHours()}"]`
     );
-    console.log(calendarTimeSlotElem);
     const event = createEventElement(obj);
     calendarTimeSlotElem.append(event);
   });

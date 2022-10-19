@@ -5,6 +5,7 @@ import { closeModal } from "../common/modal.js";
 
 const eventFormElem = document.querySelector(".event-form");
 const closeEventFormBtn = document.querySelector(".create-event__close-btn");
+const eventFormSubmitBtn = document.querySelector(".event-form__submit-btn");
 
 function clearEventForm() {
   // ф-ция должна очистить поля формы от значений
@@ -28,7 +29,6 @@ function onCreateEvent(event) {
   // закрываем форму
   // и запускаем перерисовку событий с помощью renderEvents
   event.preventDefault();
-  console.log(...new FormData(eventFormElem));
   const formData = [...new FormData(eventFormElem)].reduce(
     (acc, [field, value]) => {
       return { ...acc, [field]: value };
@@ -45,7 +45,6 @@ function onCreateEvent(event) {
   const arrayOfEvents = getItem("events");
   arrayOfEvents.push(eventObj);
   setItem("events", arrayOfEvents);
-  console.log(getItem("events"));
 
   onCloseEventForm();
   renderEvents();
@@ -56,11 +55,3 @@ export function initEventForm() {
   eventFormElem.addEventListener("submit", onCreateEvent);
   closeEventFormBtn.addEventListener("click", onCloseEventForm);
 }
-/*const submitElem = document.querySelector(".event-form__submit-btn");
-submitElem.addEventListener("click", onCloseEventForm);
-closeEventFormBtn.addEventListener("click", onCreateEvent);*/
-
-/*const inputElem = document.querySelector('input[name="title"');
-inputElem.addEventListener("input", (event) => {
-  console.log(event.target.value);
-});*/
