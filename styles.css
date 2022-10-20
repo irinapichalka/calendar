@@ -206,12 +206,11 @@
 }
 
 .event {
-  position: absolute;
+  position: relative;
   background-color: #2196f3;
   color: white;
   height: 200px;
-  position: absolute;
-  width: 60px;
+  width: 80%;
 }
 
 * {

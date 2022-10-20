@@ -24,24 +24,24 @@ const createEventElement = (event) => {
   eventTitle.textContent = event.title;
   const eventTime = document.createElement("div");
   eventTime.classList.add("event__time");
-  eventTime.textContent = `${event.start} - ${event.end}`;
+  eventTime.textContent = `${event.start.getHours()}:${event.start.getMinutes()}  - ${event.end.getHours()}:${event.end.getMinutes()}`;
   eventElem.append(eventTitle);
   eventElem.append(eventTime);
+  //console.log(new Date(event.start).);
   return eventElem;
+  getHours();
 };
 export const renderEvents = () => {
   const eventsArray = getItem("events");
   const monday = getItem("displayedWeekStart");
-  const sunday = new Date(
-    monday.getFullYear(),
-    monday.getMonth(),
-    monday.getDate() + 7 /////////////////////!!!!!!!!!!!!
-  );
-  console.log(eventsArray);
-  const eventsOfCurrentWeek = eventsArray.filter((obj) => obj.start > monday);
+  const sunday = new Date(monday);
+  sunday.setDate(sunday.getDate() + 6);
 
-  console.log(monday);
-  console.log(sunday);
+  console.log(eventsArray);
+  const eventsOfCurrentWeek = eventsArray.filter(
+    (obj) => obj.start > monday && obj.end < sunday
+  );
+
   console.log(eventsOfCurrentWeek);
   eventsOfCurrentWeek.forEach((obj) => {
     const calendarDaySlotElem = document.querySelector(
@@ -76,8 +76,13 @@ function onDeleteEvent() {
   // перерисовать события на странице в соответствии с новым списком событий в storage (renderEvents)
   const eventsArray = getItem("events");
   const idToDelete = getItem("eventIdToDelete");
+  const event = createEventElement(obj);
+  calendarTimeSlotElem.append(event);
+
   const newArray = eventsArray.filter((obj) => obj.id !== idToDelete);
+
   setItem("events", newArray);
+  console.log(getItem("events"));
   closePopup();
   renderEvents();
 }
