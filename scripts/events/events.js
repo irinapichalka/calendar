@@ -7,7 +7,12 @@ const deleteEventBtn = document.querySelector(".delete-event-btn");
 
 function removeEventsFromCalendar() {
   // ф-ция для удаления всех событий с календаря
-  setItem("events", []);
+  const calendarTimeSlotElem = document.querySelectorAll(
+    ".calendar__time-slot"
+  );
+  [...calendarTimeSlotElem].forEach((slot) => {
+    slot.innerHTML = "";
+  });
 }
 
 const createEventElement = (event) => {
@@ -29,9 +34,10 @@ const createEventElement = (event) => {
   eventElem.append(eventTime);
   //console.log(new Date(event.start).);
   return eventElem;
-  getHours();
 };
 export const renderEvents = () => {
+  removeEventsFromCalendar();
+
   const eventsArray = getItem("events");
   const monday = getItem("displayedWeekStart");
   const sunday = new Date(monday);
