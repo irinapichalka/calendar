@@ -205,11 +205,16 @@
   width: 80px;
 }
 
+.popup {
+  margin-top: 50%;
+  margin-left: 50%;
+}
+
 .event {
   position: relative;
   background-color: #2196f3;
   color: white;
-  height: 200px;
+  height: 100px;
   width: 80%;
 }
 

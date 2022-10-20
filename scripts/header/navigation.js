@@ -2,6 +2,7 @@ import { getItem, setItem } from "../common/storage.js";
 import { renderWeek } from "../calendar/calendar.js";
 import { renderHeader } from "../calendar/header.js";
 import { getStartOfWeek, getDisplayedMonth } from "../common/time.utils.js";
+import { renderEvents } from "../events/events.js";
 
 const navElem = document.querySelector(".navigation");
 const displayedMonthElem = document.querySelector(
@@ -32,6 +33,7 @@ const onChangeWeek = (event) => {
   renderWeek();
   renderCurrentMonth();
   // и перерисуйте все необходимые элементы страницы (renderHeader, renderWeek, renderCurrentMonth)
+  renderEvents();
 };
 
 export const initNavigation = () => {
