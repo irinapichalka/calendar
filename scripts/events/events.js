@@ -32,7 +32,7 @@ const createEventElement = (event) => {
   eventTime.textContent = `${event.start.getHours()}:${event.start.getMinutes()}  - ${event.end.getHours()}:${event.end.getMinutes()}`;
   eventElem.append(eventTitle);
   eventElem.append(eventTime);
-  //console.log(new Date(event.start).);
+
   return eventElem;
 };
 export const renderEvents = () => {
@@ -43,12 +43,10 @@ export const renderEvents = () => {
   const sunday = new Date(monday);
   sunday.setDate(sunday.getDate() + 6);
 
-  console.log(eventsArray);
   const eventsOfCurrentWeek = eventsArray.filter(
     (obj) => obj.start > monday && obj.end < sunday
   );
 
-  console.log(eventsOfCurrentWeek);
   eventsOfCurrentWeek.forEach((obj) => {
     const calendarDaySlotElem = document.querySelector(
       `div[data-day="${obj.start.getDate()}"]`
@@ -71,7 +69,9 @@ export const renderEvents = () => {
 function handleEventClick(event) {
   // если произошел клик по событию, то нужно паказать попап с кнопкой удаления
   // установите eventIdToDelete с id события в storage
-  openPopup();
+  const onDeleteElem = event.target.closest(".event");
+  const box = onDeleteElem.getBoundingClientRect();
+  openPopup(box.right, box.bottom);
   setItem("eventIdToDelete", event.target.closest(".event").dataset.id);
 }
 
@@ -88,7 +88,6 @@ function onDeleteEvent() {
   const newArray = eventsArray.filter((obj) => obj.id !== idToDelete);
 
   setItem("events", newArray);
-  console.log(getItem("events"));
   closePopup();
   renderEvents();
 }

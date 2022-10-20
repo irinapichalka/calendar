@@ -205,9 +205,8 @@
   width: 80px;
 }
 
-.popup {
-  margin-top: 50%;
-  margin-left: 50%;
+.delete-event-btn {
+  margin-top: auto;
 }
 
 .event {
