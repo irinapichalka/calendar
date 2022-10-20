@@ -38,12 +38,6 @@
   }
 }
 .day-label {
-  &:hover {
-    cursor: pointer;
-    background-color: $color-blue;
-    border-radius: 50%;
-    color: $color-white;
-  }
   &__day-name {
     text-transform: uppercase;
     margin-bottom: 20px;
@@ -52,4 +46,9 @@
   &__day-number {
     font-size: 25px;
   }
+}
+.today {
+  background-color: $color-blue;
+  border-radius: 50%;
+  color: $color-white;
 }

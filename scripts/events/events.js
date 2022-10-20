@@ -23,6 +23,9 @@ const createEventElement = (event) => {
 
   const eventElem = document.createElement("div");
   eventElem.classList.add("event");
+  eventElem.style.marginTop = `${event.start.getMinutes()}px`;
+  const eventHeight = (event.end - event.start) / 60000;
+  eventElem.style.height = `${eventHeight}px`;
   eventElem.dataset.id = event.id;
   const eventTitle = document.createElement("div");
   eventTitle.classList.add("event__title");

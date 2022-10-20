@@ -21,6 +21,14 @@ export const renderHeader = () => {
   // полученную разметку вставить на страницу с помощью innerHTML в .calendar__header
   const calendarHeaderElem = document.querySelector(".calendar__header");
   calendarHeaderElem.innerHTML = htmlForarrayDays;
+
+  const today = new Date();
+  const todayElem = document.querySelector(
+    `[data-day-number="${today.getDate()}"]`
+  );
+  todayElem.classList.add("today");
+  console.log(today.getDate());
+  console.log(todayElem);
 };
 // в дата атрибуте каждой ячейки должно хранить для какого часа эта ячейка
 // при клике на кнопку "Create" открыть модальное окно с формой для создания события

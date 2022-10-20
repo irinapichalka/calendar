@@ -123,12 +123,6 @@
   width: 100%;
 }
 
-.day-label:hover {
-  cursor: pointer;
-  background-color: #2196f3;
-  border-radius: 50%;
-  color: white;
-}
 .day-label__day-name {
   text-transform: uppercase;
   margin-bottom: 20px;
@@ -136,6 +130,12 @@
 }
 .day-label__day-number {
   font-size: 25px;
+}
+
+.today {
+  background-color: #2196f3;
+  border-radius: 50%;
+  color: white;
 }
 
 .calendar__time-scale {
@@ -213,7 +213,6 @@
   position: relative;
   background-color: #2196f3;
   color: white;
-  height: 100px;
   width: 80%;
 }
 
