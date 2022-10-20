@@ -76,8 +76,8 @@ function onDeleteEvent() {
   // перерисовать события на странице в соответствии с новым списком событий в storage (renderEvents)
   const eventsArray = getItem("events");
   const idToDelete = getItem("eventIdToDelete");
-  const event = createEventElement(obj);
-  calendarTimeSlotElem.append(event);
+  /*const event = createEventElement(obj);
+  calendarTimeSlotElem.append(event);*/
 
   const newArray = eventsArray.filter((obj) => obj.id !== idToDelete);
 
