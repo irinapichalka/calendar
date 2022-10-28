@@ -26,9 +26,10 @@ export const renderHeader = () => {
   const todayElem = document.querySelector(
     `[data-day-number="${today.getDate()}"]`
   );
-  todayElem.classList.add("today");
-  console.log(today.getDate());
-  console.log(todayElem);
+  const todayDay = todayElem.querySelector(":scope > span");
+
+  if (todayDay.textContent === daysOfWeek[today.getDay()])
+    todayElem.classList.add("today");
 };
 // в дата атрибуте каждой ячейки должно хранить для какого часа эта ячейка
 // при клике на кнопку "Create" открыть модальное окно с формой для создания события
